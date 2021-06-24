@@ -1,0 +1,36 @@
+NAME
+    python-graphite is a Python3 library to send Graphite metrics
+
+DOCUMENTATION
+    python-graphite periodically makes metrics snapshot and sends to Graphite
+    over TCP protocol. If send operation failed metrics are stored inside buffer
+    and will be sent withing next attempt.
+
+EXAMPLE
+    import graphite
+
+    # Create client.
+    g = graphite.Graphite('graphite.host', 2003, prefix='my-app')
+
+    # Create gauge metric. Gauge value will be generated every time snapshot is
+    # created.
+    g.gauge('gauge', lambda: int(time.time()))
+
+    # Simple counter metric.
+    g.counter('counter').inc()
+
+    # Series metric calculates sum, min, max, count, average, median,
+    # 75, 95 and 99 percentiles values.
+    g.series('series').add(1.4)
+
+    # Close client at the end, to be sure that all metrics have been sent
+    # and internal thread terminated.
+    g.close()
+
+AUTHORS
+    Viacheslav Chimishuk <vchimishuk@yandex.ru>
+
+COPYING
+    This programm is released under the GNU General Public License version 3 or later, which is
+    distributed in the COPYING file. You should have received a copy of the GNU General Public License along with
+    this program.  If not, see <http://www.gnu.org/licenses/>.
