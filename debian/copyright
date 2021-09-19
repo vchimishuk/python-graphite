@@ -1,6 +1,6 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: python-graphite
-Source: https://github.com/vchimishuk/python-graphite
+Upstream-Name: python-pygraphite
+Source: https://github.com/vchimishuk/python-pygraphite
 
 Files: *
 Copyright: 2021 Viacheslav Chimishuk <vchimishuk@yandex.ru>

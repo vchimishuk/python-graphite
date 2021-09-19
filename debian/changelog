@@ -1,4 +1,4 @@
-python-graphite (0.1.0) stable; urgency=low
+python-pygraphite (0.1.0) stable; urgency=low
 
   * Initial release.
 
