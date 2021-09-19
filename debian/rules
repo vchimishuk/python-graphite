@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+export DH_VERBOSE=1
+
+%:
+	dh $@
+
+override_dh_auto_install:
+	install -g 0 -o 0 -d debian/python-graphite/usr/lib/python3/dist-packages
+	cp -r graphite debian/python-graphite/usr/lib/python3/dist-packages
