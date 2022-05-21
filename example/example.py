@@ -1,10 +1,10 @@
 import time
 import random
-import pygraphite
+import pyrite
 
 
-g = pygraphite.Graphite('graphite.localdomain', 2003,
-                        interval=60, prefix='example')
+g = pyrite.Pyrite('graphite.localdomain', 2003,
+                  interval=60, prefix='example')
 
 # Callable passed to gauge will be called every time
 # metrics snapshot is taken.

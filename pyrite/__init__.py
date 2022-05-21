@@ -1,0 +1,1 @@
+from .pyrite import Pyrite

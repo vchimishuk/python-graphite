@@ -10,7 +10,7 @@ from .metrics import Counter, Gauge, Series
 logger = logging.getLogger(__name__)
 
 
-class Graphite:
+class Pyrite:
     DEBT_MAX_SIZE = 100_000
 
     def __init__(self, host, port, interval=60, timeout=10, prefix=''):

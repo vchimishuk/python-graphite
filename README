@@ -1,16 +1,16 @@
 NAME
-    python-pygraphite is a Python3 library to send Graphite metrics
+    python-pyrite is a Python3 library to send Graphite metrics
 
 DOCUMENTATION
-    python-pygraphite periodically makes metrics snapshot and sends to Graphite
+    python-pyrite periodically makes metrics snapshot and sends to Graphite
     over TCP protocol. If send operation failed metrics are stored inside buffer
     and will be sent withing next attempt.
 
 EXAMPLE
-    import pygraphite
+    import pyrite
 
     # Create client.
-    g = pygraphite.Graphite('graphite.host', 2003, prefix='my-app')
+    g = pyrite.Pyrite('graphite.host', 2003, prefix='my-app')
 
     # Create gauge metric. Gauge value will be generated every time snapshot is
     # created.
