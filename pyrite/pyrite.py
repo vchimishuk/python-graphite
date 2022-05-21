@@ -63,7 +63,8 @@ class Pyrite:
                 t = int(time.time())
                 sn = debt
                 for m in self.metrics.values():
-                    sn.extend(m.snapshot())
+                    for s in m.snapshot():
+                        sn.append((s[0], s[1], t))
 
             try:
                 hp = (self.host, self.port)
@@ -73,13 +74,11 @@ class Pyrite:
             except Exception as e:
                 logger.warn('Failed to send metrics: %s', e)
                 debt = sn[-self.DEBT_MAX_SIZE:]
-                raise e
 
             if self.sender_shutdown.is_set():
                 break
 
     def serialize(self, metrics):
-        t = str(int(time.time()))
         s = io.StringIO()
         for m in metrics:
             if self.prefix:
@@ -89,7 +88,7 @@ class Pyrite:
             s.write(' ')
             s.write(str(m[1]))
             s.write(' ')
-            s.write(t)
+            s.write(str(m[2]))
             s.write('\n')
 
         return s.getvalue()
