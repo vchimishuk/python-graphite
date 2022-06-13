@@ -34,7 +34,11 @@ class Gauge(Metric):
         self.value = value
 
     def snapshot(self):
-        return ((self.name, self.value()),)
+        v = self.value()
+        if v is None:
+            return None
+        else:
+            return ((self.name, v),)
 
 
 class Series(Metric):

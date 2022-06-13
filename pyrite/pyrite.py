@@ -64,7 +64,8 @@ class Pyrite:
                 sn = debt
                 for m in self.metrics.values():
                     for s in m.snapshot():
-                        sn.append((s[0], s[1], t))
+                        if s is not None:
+                            sn.append((s[0], s[1], t))
 
             try:
                 hp = (self.host, self.port)
