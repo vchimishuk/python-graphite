@@ -1,3 +1,9 @@
+python-pyrite (0.3.0) stable; urgency=low
+
+  * Add Gauges metric.
+
+ -- Viacheslav Chimishuk <vchimishuk@yandex.ru>  Fri, 19 Sep 2022 13:44:00 +0300
+
 python-pyrite (0.2.0) stable; urgency=low
 
   * Ignore None gauge metrics.
