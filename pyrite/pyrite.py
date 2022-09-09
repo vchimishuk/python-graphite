@@ -4,7 +4,7 @@ import datetime
 import socket
 import threading
 import logging
-from .metrics import Counter, Gauge, Series
+from .metrics import Counter, Gauge, Gauges, Series
 
 
 logger = logging.getLogger(__name__)
@@ -33,6 +33,9 @@ class Pyrite:
 
     def gauge(self, name, value):
         return self.metric(name, lambda n: Gauge(n, value))
+
+    def gauges(self, name, values):
+        return self.metric(name, lambda n: Gauges(n, values))
 
     def series(self, name):
         return self.metric(name, Series)

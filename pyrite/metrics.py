@@ -41,6 +41,19 @@ class Gauge(Metric):
             return ((self.name, v),)
 
 
+class Gauges(Metric):
+    def __init__(self, name, values):
+        super().__init__(name)
+        self.values = values
+
+    def snapshot(self):
+        s = []
+        for n, v in self.values():
+            s.append((self.name + '.' + n, v))
+
+        return s
+
+
 class Series(Metric):
     MAX_SAMPLES = 1000
     INF = float("inf")

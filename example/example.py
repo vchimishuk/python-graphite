@@ -10,6 +10,9 @@ g = pyrite.Pyrite('graphite.localdomain', 2003,
 # metrics snapshot is taken.
 g.gauge('gauge', lambda: int(time.time()))
 
+# Multiple gauges can be generated withing a single call.
+g.gauges('gauges', lambda: (('a', 1), ('b', 2), ('c', 3)))
+
 # Counter is simple as usual.
 c = g.counter('counter')
 c.inc(random.randint(0, 100))
